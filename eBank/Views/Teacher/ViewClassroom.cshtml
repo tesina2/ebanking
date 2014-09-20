@@ -1,0 +1,32 @@
+﻿@model eBank.Models.Classroom
+
+@{
+    ViewBag.Title = "ViewClassroom";
+}
+
+<h2>View Classroom</h2>
+
+<fieldset>
+    <legend>Classroom</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ClassroomName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClassroomName)
+    </div>
+
+    <h2>Students In Classroom</h2>
+    <ul>
+        @foreach (var item in Model.Students)
+        {
+            <li>@Html.ActionLink(item.FirstName + " " + item.LastName, "ViewStudent", new { id = item.UserId })</li>
+        }
+    </ul>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditClassroom", new { id=Model.ClassroomID }) |
+    @Html.ActionLink("Delete", "DeleteClassroom", new { id=Model.ClassroomID }) |
+    @Html.ActionLink("Back", "ListClassrooms")
+</p>
+

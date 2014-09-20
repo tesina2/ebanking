@@ -1,0 +1,152 @@
+﻿@model eBank.Models.Student
+
+@{
+    ViewBag.Title = "EditStudent";
+}
+
+<h2>Edit Student</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Student</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ClassroomID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClassroomID)
+            @Html.ValidationMessageFor(model => model.ClassroomID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ExpensesID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ExpensesID)
+            @Html.ValidationMessageFor(model => model.ExpensesID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmailAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmailAddress)
+            @Html.ValidationMessageFor(model => model.EmailAddress)
+        </div>
+
+        <div class="editor-label">
+            Bills Paid?
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.bBillsPaid)
+            @Html.ValidationMessageFor(model => model.bBillsPaid)
+        </div>
+
+        <div class="editor-label">
+            Account Alert Setup?
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.bAlertSetup)
+            @Html.ValidationMessageFor(model => model.bAlertSetup)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Points)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Points)
+            @Html.ValidationMessageFor(model => model.Points)
+        </div>
+
+        @Html.HiddenFor(x => x.Rank)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AccountThreshold)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AccountThreshold)
+            @Html.ValidationMessageFor(model => model.AccountThreshold)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AlertAccountID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AlertAccountID)
+            @Html.ValidationMessageFor(model => model.AlertAccountID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Happiness)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Happiness)
+            @Html.ValidationMessageFor(model => model.Happiness)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Health)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Health)
+            @Html.ValidationMessageFor(model => model.Health)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Hunger)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Hunger)
+            @Html.ValidationMessageFor(model => model.Hunger)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Social)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Social)
+            @Html.ValidationMessageFor(model => model.Social)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Energy)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Energy)
+            @Html.ValidationMessageFor(model => model.Energy)
+        </div>
+
+        @Html.HiddenFor(model => model.UserId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ListStudents")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

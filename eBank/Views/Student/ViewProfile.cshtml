@@ -1,0 +1,37 @@
+﻿@model eBank.Models.Student
+
+@{
+    ViewBag.Title = "ViewProfile";
+}
+
+<h2>ViewProfile</h2>
+
+<fieldset>
+    <legend>Student</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EmailAddress)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmailAddress)
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditProfile") |
+    @Html.ActionLink("Settings", "Settings")
+</p>

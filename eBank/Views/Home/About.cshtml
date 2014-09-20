@@ -1,0 +1,30 @@
+﻿@model eBank.ViewModels.StudentInformationViewModel
+
+@{
+    ViewBag.Title = "About";
+}
+
+<h2>Simulator Statistics</h2>
+
+<table>
+    <tr>
+        <th>
+            Student Count
+        </th>
+
+        <th>
+            Classroom Count
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Model.StudentCount
+        </td>
+
+        <td>
+            @Model.ClassroomCount
+        </td>
+    </tr>
+</table>
+

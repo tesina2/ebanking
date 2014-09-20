@@ -1,0 +1,27 @@
+﻿@model eBank.Models.Classroom
+
+@{
+    ViewBag.Title = "DeleteClassroom";
+}
+
+<h2>Delete Classroom</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<h3>All students must be moved out of the classroom before deleting is possible.</h3>
+<fieldset>
+    <legend>Classroom</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ClassroomName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClassroomName)
+    </div>
+
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "ListClassrooms")
+    </p>
+}

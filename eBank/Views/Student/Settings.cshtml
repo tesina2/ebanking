@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Settings";
+}
+
+<nav>
+    <ul id="menu">
+        <li>@Html.ActionLink("OVERVIEW", "Index")</li>
+        <li>@Html.ActionLink("ACCOUNTS", "AccountSummary")</li>
+        <li>@Html.ActionLink("TRANSFERS", "TransferFunds", "Student")</li>
+        <li>@Html.ActionLink("BILLPAY", "ViewExpenses", "Student")</li>
+        <li>@Html.ActionLink("eSTATEMENTS", "eSTATEMENT", "Student")</li>
+        <li>@Html.ActionLink("ALERTS", "SetupAlert", "Student")</li>
+        <li>@Html.ActionLink("PREFERENCES", "Settings", "Student")</li>
+    </ul>
+</nav>
+
+<nav>
+    <ul id="menu">
+        <li>@Html.ActionLink("Profile Information", "EditProfile","Student")</li>
+        <li>@Html.ActionLink("Change Password", "Manage", "Account")</li>
+    </ul>
+</nav>
+

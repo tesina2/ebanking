@@ -1,0 +1,99 @@
+﻿@model eBank.Models.Student
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_StudentOverviewLayout.cshtml";
+}
+
+
+<nav>
+    <ul id="menu">
+        <li>@Html.ActionLink("OVERVIEW", "Index")</li>
+        <li>@Html.ActionLink("ACCOUNTS", "AccountSummary")</li>
+        <li>@Html.ActionLink("TRANSFERS", "TransferFunds", "Student")</li>
+        <li>@Html.ActionLink("BILLPAY", "ViewExpenses", "Student")</li>
+        <li>@Html.ActionLink("eSTATEMENTS", "eSTATEMENT", "Student")</li>
+        <li>@Html.ActionLink("ALERTS", "SetupAlert", "Student")</li>
+        <li>@Html.ActionLink("PREFERENCES", "Settings", "Student")</li>
+    </ul>
+</nav>
+
+<h2>Welcome, @Model.FirstName  @Model.LastName</h2>
+
+<head>
+  <title>Index</title>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+</head>
+
+<div id="container">
+    <h4>Happiness Level: @Model.Happiness/100</h4>
+    <div id="bar-1" class="bar-main-container emerald">
+        <div class="wrap">
+            <div class="bar-percentage" data-percentage=@Model.Happiness></div>
+            <div class="bar-container">
+                <div class="bar"></div>
+            </div>    
+        </div>
+    </div>
+
+    <h4>Health Level: @Model.Health/100</h4>
+    <div id="bar-2" class="bar-main-container red">
+        <div class="wrap">
+            <div class="bar-percentage" data-percentage=@Model.Health></div>
+            <div class="bar-container">
+                <div class="bar"></div>
+            </div>    
+        </div>
+    </div>
+
+    <h4>Hunger Level: @Model.Hunger/100</h4>
+    <div id="bar-3" class="bar-main-container azure">
+        <div class="wrap">
+            <div class="bar-percentage" data-percentage=@Model.Hunger></div>
+            <div class="bar-container">
+                <div class="bar"></div>
+            </div>    
+        </div>
+    </div>
+
+    <h4>Social Level: @Model.Social/100</h4>
+    <div id="bar-4" class="bar-main-container violet">
+        <div class="wrap">
+            <div class="bar-percentage" data-percentage=@Model.Social></div>
+            <div class="bar-container">
+                <div class="bar"></div>
+            </div>    
+        </div>
+    </div>
+
+    <h4>Energy Level: @Model.Energy/100</h4>
+    <div id="bar-5" class="bar-main-container orange">
+        <div class="wrap">
+            <div class="bar-percentage" data-percentage=@Model.Energy></div>
+            <div class="bar-container">
+                <div class="bar"></div>
+            </div>    
+        </div>
+    </div>
+</div>
+
+<body>
+ 
+<script>
+    $('.bar-percentage[data-percentage]').each(function () {
+        var progress = $(this);
+        var percentage = Math.ceil($(this).attr('data-percentage'));
+        $({ countNum: 0 }).animate({ countNum: percentage + 1 }, {
+            duration: 2000,
+            easing: 'linear',
+            step: function () {
+                var pct = Math.floor(this.countNum) + '%';
+                progress.text(pct) && progress.siblings().children().css('width', pct);
+            }
+        });
+    });
+</script>
+    
+</body>

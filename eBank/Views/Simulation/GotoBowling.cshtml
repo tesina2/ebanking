@@ -1,0 +1,39 @@
+﻿@model eBank.Models.Store
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/Simulation.css" />
+
+<fieldset>
+    <legend>Bowling</legend>
+
+    <div class="StoreName" align="center">
+        @Html.DisplayFor(model => model.StoreName)
+    </div>
+
+    <table width="200" style="margin-left:auto;margin-right:auto">
+        <thead><tr>
+            <th align="center">Option</th>
+            <th align="center">Description</th>
+            <th align="center">Price</th>
+            <th></th>
+               </tr></thead>
+        <tbody>
+            @foreach (var item in Model.StoreItems)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(i => item.StoreItemName)</td>
+                    <td>@Html.DisplayFor(i => item.ItemDescription)</td>
+                    <td>@Html.DisplayFor(i => item.ItemPrice)</td>
+                    <td>
+                        @using(Html.BeginForm("PurchaseSingleItem", "Simulation", new { id = item.StoreItemID })) {
+                            <input class="PurchaseButton" type="submit" value="Bowl!" />
+                        }
+                    </td>
+                </tr> 
+            }
+        </tbody>
+    </table>
+</fieldset>

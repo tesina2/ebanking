@@ -1,0 +1,134 @@
+﻿@model eBank.Models.Student
+
+@{
+    ViewBag.Title = "View Student";
+}
+
+<nav>
+    <ul id="menu">
+        <li>@Html.ActionLink("Students", "ListStudents", "Admin")</li>
+        <li>@Html.ActionLink("Teachers", "ListTeachers", "Admin")</li>
+        <li>@Html.ActionLink("Classrooms", "ListClassrooms", "Admin")</li>
+        <li>@Html.ActionLink("Simulation Settings", "SimulationSettings", "Admin")</li>
+    </ul>
+</nav>
+
+<h2>View Student</h2>
+
+<fieldset>
+    <legend>Student</legend>
+
+@*    <div class="display-label">
+        @Html.ActionLink("View/Edit Student Bank Accounts", "EditAccounts", new { id = Model.UserId })
+    </div>*@
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ClassroomID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClassroomID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ExpensesID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ExpensesID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EmailAddress)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmailAddress)
+    </div>
+
+    <div class="display-label">
+         Bills Paid?
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.bBillsPaid)
+    </div>
+
+    <div class="display-label">
+         Account Alert Setup?
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.bAlertSetup)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Points)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Points)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AccountThreshold)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AccountThreshold)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AlertAccountID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AlertAccountID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Happiness)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Happiness)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Health)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Health)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Hunger)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hunger)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Social)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Social)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Energy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Energy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+</fieldset>
+
+<p>
+    @Html.ActionLink("Edit", "EditStudent", new { id = Model.UserId }) |
+    @Html.ActionLink("Delete", "DeleteStudent", new { id = Model.UserId })
+</p>

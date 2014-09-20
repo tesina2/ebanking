@@ -1,0 +1,48 @@
+﻿@model eBank.ViewModels.PayExpenseViewModel
+
+@{
+    ViewBag.Title = "PayExpense";
+}
+
+<nav>
+    <ul id="menu">
+        <li>@Html.ActionLink("OVERVIEW", "Index")</li>
+        <li>@Html.ActionLink("ACCOUNTS", "AccountSummary")</li>
+        <li>@Html.ActionLink("TRANSFERS", "TransferFunds", "Student")</li>
+        <li>@Html.ActionLink("BILLPAY", "ViewExpenses", "Student")</li>
+        <li>@Html.ActionLink("eSTATEMENTS", "eSTATEMENT", "Student")</li>
+        <li>@Html.ActionLink("ALERTS", "SetupAlert", "Student")</li>
+        <li>@Html.ActionLink("PREFERENCES", "Settings", "Student")</li>
+    </ul>
+</nav>    
+
+@using (Html.BeginForm()) {
+    <fieldset>
+        <legend>Transfer Funds</legend>
+
+        <div class="editor-label">
+            Account To Pay From
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(viewModel => viewModel.SelectedAccountId, Model.ListOfAccounts, "Choose an Account")
+        </div>
+
+        <div class="editor-label">
+            Total Expenses Amount
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(viewModel => viewModel.ExpenseAmount)
+        </div>
+
+        <div>
+            @Html.HiddenFor(viewModel => viewModel.StudentExpenseId)
+        </div>
+        <p>
+            <input type="submit" value="Pay" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back", "ViewExpenses")
+</div>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<eBank.Models.Student>
+
+@{
+    ViewBag.Title = "ListStudents";
+}
+
+<h2>List Students</h2>
+
+<p>
+    @Html.ActionLink("Back", "Index")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+@*        <th>
+            Classroom
+        </th>*@
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.FirstName, "ViewStudent", new { id=item.UserId })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+@*        <td>
+            @Html.DisplayFor(modelItem => item.Classroom.ClassroomName)
+        </td>*@
+    </tr>
+}
+
+</table>

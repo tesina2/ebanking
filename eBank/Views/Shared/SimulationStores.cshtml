@@ -1,0 +1,97 @@
+﻿<link rel="stylesheet" type="text/css" href="~/Content/Stores.css" />
+
+<ul class="ca-menu">
+    <li class="drop">
+        <a href="~/Simulation/Food">
+            <span class="ca-icon">+</span>
+            <div class="ca-content">
+                <h2 class="ca-main">Food</h2>
+                <h3 class="ca-sub">End Hunger!</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="~/Simulation/Convenience">
+            <span class="ca-icon">P</span>
+            <div class="ca-content">
+                <h2 class="ca-main">Convenience</h2>
+                <h3 class="ca-sub">Right Now!</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="~/Simulation/Health">
+            <span class="ca-icon" id="heart">N</span>
+            <div class="ca-content">
+                <h2 class="ca-main">Health</h2>
+                <h3 class="ca-sub">Get Big!</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="~/Simulation/Fun">
+            <span class="ca-icon">M</span>
+            <div class="ca-content">
+                <h2 class="ca-main">Fun</h2>
+                <h3 class="ca-sub">Wohoo!</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="~/Simulation/DailyEvents">
+            <span class="ca-icon">L</span>
+            <div class="ca-content">
+                <h2 class="ca-main">Daily Events</h2>
+                <h3 class="ca-sub">Anything & Everything</h3>
+            </div>
+        </a>
+    </li>
+</ul>
+
+<body>
+    <script>
+        var cbpHorizontalMenu = (function () {
+
+            var $listItems = $('#cbp-hrmenu > ul > li'),
+                $menuItems = $listItems.children('a'),
+                $body = $('body'),
+                current = -1;
+
+            function init() {
+                $menuItems.on('click', open);
+                $listItems.on('click', function (event) { event.stopPropagation(); });
+            }
+
+            function open(event) {
+
+                if (current !== -1) {
+                    $listItems.eq(current).removeClass('cbp-hropen');
+                }
+
+                var $item = $(event.currentTarget).parent('li'),
+                    idx = $item.index();
+
+                if (current === idx) {
+                    $item.removeClass('cbp-hropen');
+                    current = -1;
+                }
+                else {
+                    $item.addClass('cbp-hropen');
+                    current = idx;
+                    $body.off('click').on('click', close);
+                }
+
+                return false;
+
+            }
+
+            function close(event) {
+                $listItems.eq(current).removeClass('cbp-hropen');
+                current = -1;
+            }
+
+            return { init: init };
+
+        })();
+    </script>
+</body>

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<eBank.Models.StudentExpense>
+
+@{
+    ViewBag.Title = "ViewExpenses";
+}
+
+
+<nav>
+    <ul id="menu">
+        <li>@Html.ActionLink("OVERVIEW", "Index")</li>
+        <li>@Html.ActionLink("ACCOUNTS", "AccountSummary")</li>
+        <li>@Html.ActionLink("TRANSFERS", "TransferFunds", "Student")</li>
+        <li>@Html.ActionLink("BILLPAY", "ViewExpenses", "Student")</li>
+        <li>@Html.ActionLink("eSTATEMENTS", "eSTATEMENT", "Student")</li>
+        <li>@Html.ActionLink("ALERTS", "SetupAlert", "Student")</li>
+        <li>@Html.ActionLink("PREFERENCES", "Settings", "Student")</li>
+    </ul>
+</nav>
+
+<h2>ViewExpenses</h2>
+
+<fieldset>
+    <legend>Expenses</legend>
+
+    @foreach (var item in Model) { 
+        <p>@Html.DisplayFor(expense => item.Name)</p>
+        <p>@Html.DisplayFor(expense => item.Company)</p>
+        <p>@Html.DisplayFor(expense => item.CurrentAmountOwed)</p>
+        <p>@Html.ActionLink("Pay Bill", "PayExpense", new { expenseId = item.StudentExpenseID })</p>
+        @*<p>@Html.DisplayFor(expense => item.Expense.ExpenseAccountNumber)</p>*@
+    }
+
+</fieldset>
+<p>
+    @Html.ActionLink("AccountSummary", "AccountSummary") |
+    @Html.ActionLink("Add Bill Payee", "CreateExpense") 
+</p>

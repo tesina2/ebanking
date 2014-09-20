@@ -1,0 +1,42 @@
+﻿@model eBank.ViewModels.SetupAlertViewModel
+
+<nav>
+    <ul id="menu">
+        <li>@Html.ActionLink("OVERVIEW", "Index")</li>
+        <li>@Html.ActionLink("ACCOUNTS", "AccountSummary")</li>
+        <li>@Html.ActionLink("TRANSFERS", "TransferFunds", "Student")</li>
+        <li>@Html.ActionLink("BILLPAY", "ViewExpenses", "Student")</li>
+        <li>@Html.ActionLink("eSTATEMENTS", "eSTATEMENT", "Student")</li>
+        <li>@Html.ActionLink("ALERTS", "SetupAlert", "Student")</li>
+        <li>@Html.ActionLink("PREFERENCES", "Settings", "Student")</li>
+    </ul>
+</nav>    
+
+@using (Html.BeginForm()) {
+    <fieldset>
+        <legend>Transfer Funds</legend>
+
+        <div class="editor-label">
+            Account To Setup Alert For
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(viewModel => viewModel.SelectedAccountId, Model.ListOfAccounts, "Choose an Account")
+        </div>
+
+        <div class="editor-label">
+            Send email if account falls below:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(viewModel => viewModel.AmountThreshold)
+        </div>
+
+        <p>
+            <input type="submit" value="Confirm" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back", "AccountSummary")
+</div>
+

@@ -1,0 +1,38 @@
+﻿@model eBank.Models.Student
+
+@{
+    ViewBag.Title = "ViewStudent";
+}
+
+<h2>View Student</h2>
+
+<fieldset>
+    <legend>Student</legend>
+
+    <table>
+        <caption><h2>@Model.FirstName @Model.LastName</h2></caption>
+        <thead>
+            <tr>
+                <th>Classroom</th>
+                <th>Email Address</th>
+                <th>Student Paid Bills?</th>
+                <th>Account Alert Setup?</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Classroom.ClassroomName</td>
+                <td>@Model.EmailAddress</td>
+                <td>@Model.bBillsPaid</td>
+                <td>@Model.bAlertSetup</td>
+                <td>@Model.Points</td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>
+
+<p>
+    @Html.ActionLink("Manage", "ManageStudent", new { id=Model.UserId }) |
+    @Html.ActionLink("Back to List", "ListStudents")
+</p>

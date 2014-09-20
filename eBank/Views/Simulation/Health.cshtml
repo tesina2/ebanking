@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Health";
+    Layout = "~/Views/Shared/_FoodLayout.cshtml";
+}
+
+@model eBank.Models.Store
+
+<link rel="stylesheet" type="text/css" href="~/Content/Simulation.css" />
+
+<div class="freshdesignweb" width="950" style="margin-left:auto;margin-right:auto">
+    <article class="border c-two" style="background-image: url('/Content/images/DrugStore.jpg')">
+        <div style="opacity: 0;" class="fdw-background">
+            <h4 style="color:#fff;">Drug Store</h4>
+            <p class="fdw-port">
+                @Html.ActionLink("Go Now", "GotoDrugStore", "Simulation")<span class="vg-icon">→</span>
+            </p>
+        </div>
+    </article>
+
+    <article class="border c-two" style="background-image: url('/Content/images/Gym.jpg')">
+        <div style="opacity: 0;" class="fdw-background">
+            <h4 style="color:#fff;">Gym</h4>
+            <p class="fdw-port">
+                @Html.ActionLink("Go Now", "GotoGym", "Simulation")<span class="vg-icon">→</span>
+            </p>
+        </div>
+    </article>
+
+    <article class="border c-two" style="background-image: url('/Content/images/Shake.jpg')">
+        <div style="opacity: 0;" class="fdw-background">
+            <h4 style="color:#fff;">Shake Store</h4>
+            <p class="fdw-port">
+                @Html.ActionLink("Go Now", "GotoShakeStore", "Simulation")<span class="vg-icon">→</span>
+            </p>
+        </div>
+    </article>
+
+    <article class="border c-two" style="background-image: url('/Content/images/Vitamins.jpg')">
+        <div style="opacity: 0;" class="fdw-background">
+            <h4 style="color:#fff;">Viva Vitamin</h4>
+            <p class="fdw-port">
+                @Html.ActionLink("Go Now", "GotoVivaVitamin", "Simulation")<span class="vg-icon">→</span>
+            </p>
+        </div>
+    </article>
+
+    <article class="border c-two" style="background-image: url('/Content/images/Hospital.jpg')">
+        <div style="opacity: 0;" class="fdw-background">
+            <h4 style="color:#fff;">Hospital</h4>
+            <p class="fdw-port">
+                @Html.ActionLink("Go Now", "GotoHospital", "Simulation")<span class="vg-icon">→</span>
+            </p>
+        </div>
+    </article>
+
+    <article class="border c-two" style="background-image: url('/Content/images/Sporting.jpg')">
+        <div style="opacity: 0;" class="fdw-background">
+            <h4 style="color:#fff;">Sporting Stop</h4>
+            <p class="fdw-port">
+                @Html.ActionLink("Go Now", "GotoSportingStop", "Simulation")<span class="vg-icon">→</span>
+            </p>
+        </div>
+    </article>
+</div>
+
+<div id="Rest">
+
+</div>

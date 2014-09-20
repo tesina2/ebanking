@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Food";
+    Layout = "~/Views/Shared/_FoodLayout.cshtml";
+}
+
+@model eBank.Models.Store
+
+<link rel="stylesheet" type="text/css" href="~/Content/Simulation.css" />
+
+<div class="freshdesignweb">
+    <article class="border c-two" style="background-image: url('/Content/images/Gas.jpg')">
+        <div style="opacity: 0;" class="fdw-background">
+            <h4 style="color:#fff;">Gas</h4>
+            <p class="fdw-port">
+                @Ajax.ActionLink("Go Now", "GotoGas", "Simulation", new AjaxOptions { UpdateTargetId = "Rest", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })<span class="vg-icon">→</span>
+            </p>
+        </div>
+    </article>
+
+    <article class="border c-two" style="background-image: url('/Content/images/Mart.jpg')">
+        <div style="opacity: 0;" class="fdw-background">
+            <h4 style="color:#fff;">Quick Mart</h4>
+            <p class="fdw-port">
+                @Html.ActionLink("Go Now", "GotoQuickMart", "Simulation")<span class="vg-icon">→</span>
+            </p>
+        </div>
+    </article>
+
+    <article class="border c-two" style="background-image: url('/Content/images/SpeedyStop.jpg')">
+        <div style="opacity: 0;" class="fdw-background">
+            <h4 style="color:#fff;">MEGA Speedy Stop</h4>
+            <p class="fdw-port">
+                @Ajax.ActionLink("Go Now", "GotoMEGASpeedyStop", "Simulation", new { id = 3 }, new AjaxOptions { UpdateTargetId = "Rest", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" })<span class="vg-icon">→</span>
+            </p>
+        </div>
+    </article>
+</div>
+
+<div id="Rest">
+
+</div>
+ 

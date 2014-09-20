@@ -1,0 +1,40 @@
+﻿@*@model IEnumerable<eBank.Models.Account>
+
+@{
+    ViewBag.Title = "EditAccounts";
+}
+
+<h2>Edit Accounts</h2>
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Accounts</legend>
+
+        @foreach (var item in Model)
+        {
+            @Html.HiddenFor(modelItem => item.AccountID)
+            @Html.HiddenFor(modelItem => item.StudentID)
+
+            <ul>
+                @Html.DisplayFor(modelItem => item.AccountName)
+                <li>@Html.EditorFor(modelItem => item.AccountTotal)</li>
+            </ul>
+        }
+
+        <p>
+            <input type="submit" value="Update Accounts" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ListStudents")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

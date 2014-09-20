@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Fun";
+    Layout = "~/Views/Shared/_FoodLayout.cshtml";
+}
+
+@model eBank.Models.Store
+
+<link rel="stylesheet" type="text/css" href="~/Content/Simulation.css" />
+
+<div class="freshdesignweb" width="950" style="margin-left:auto;margin-right:auto">
+    <article class="border c-two" style="background-image: url('/Content/images/Theater.jpg')">
+        <div style="opacity: 0;" class="fdw-background">
+            <h4 style="color:#fff;">Movie Theater</h4>
+            <p class="fdw-port">
+                @Html.ActionLink("Go Now", "GotoMovieTheater", "Simulation")<span class="vg-icon">→</span>
+            </p>
+        </div>
+    </article>
+
+    <article class="border c-two" style="background-image: url('/Content/images/SkyDive.jpg')">
+        <div style="opacity: 0;" class="fdw-background">
+            <h4 style="color:#fff;">Super Sky Diving</h4>
+            <p class="fdw-port">
+                @Html.ActionLink("Go Now", "GotoSkyDiving", "Simulation")<span class="vg-icon">→</span>
+            </p>
+        </div>
+    </article>
+
+    <article class="border c-two" style="background-image: url('/Content/images/Park.jpg')">
+        <div style="opacity: 0;" class="fdw-background">
+            <h4 style="color:#fff;">Park</h4>
+            <p class="fdw-port">
+                @Html.ActionLink("Go Now", "GotoPark", "Simulation")<span class="vg-icon">→</span>
+            </p>
+        </div>
+    </article>
+
+    <article class="border c-two" style="background-image: url('/Content/images/Bowling.jpg')">
+        <div style="opacity: 0;" class="fdw-background">
+            <h4 style="color:#fff;">Bowling Alley</h4>
+            <p class="fdw-port">
+                @Html.ActionLink("Go Now", "GotoBowling", "Simulation")<span class="vg-icon">→</span>
+            </p>
+        </div>
+    </article>
+
+    <article class="border c-two" style="background-image: url('/Content/images/Amusement.jpg')">
+        <div style="opacity: 0;" class="fdw-background">
+            <h4 style="color:#fff;">Amusement Park</h4>
+            <p class="fdw-port">
+                @Html.ActionLink("Go Now", "GotoAmusementPark", "Simulation")<span class="vg-icon">→</span>
+            </p>
+        </div>
+    </article>
+
+    <article class="border c-two" style="background-image: url('/Content/images/Lake.jpg')">
+        <div style="opacity: 0;" class="fdw-background">
+            <h4 style="color:#fff;">The Lake</h4>
+            <p class="fdw-port">
+                @Html.ActionLink("Go Now", "GotoTheLake", "Simulation")<span class="vg-icon">→</span>
+            </p>
+        </div>
+    </article>
+</div>
+
+<div id="Rest">
+
+</div>

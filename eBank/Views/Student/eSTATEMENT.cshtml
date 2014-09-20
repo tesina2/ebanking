@@ -1,0 +1,65 @@
+﻿@model IEnumerable<eBank.Models.Purchase>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<nav>
+    <ul id="menu">
+        <li>@Html.ActionLink("OVERVIEW", "Index")</li>
+        <li>@Html.ActionLink("ACCOUNTS", "AccountSummary")</li>
+        <li>@Html.ActionLink("TRANSFERS", "TransferFunds", "Student")</li>
+        <li>@Html.ActionLink("BILLPAY", "ViewExpenses", "Student")</li>
+        <li>@Html.ActionLink("eSTATEMENTS", "eSTATEMENT", "Student")</li>
+        <li>@Html.ActionLink("ALERTS", "SetupAlert", "Student")</li>
+        <li>@Html.ActionLink("PREFERENCES", "Settings", "Student")</li>
+    </ul>
+</nav>
+
+@*The eSTAEMENTS Feature is having a major bug right now and can only display the purchase date of items without crashing. It should be fixed shortly.*@
+
+<h2 align="center">Purchases</h2>
+
+<fieldset>
+    <legend>eSTATEMENT</legend>
+    <table>
+        <tr>
+            <th>
+                Purchase Date
+            </th>
+             <th>
+                Store Name
+            </th>
+            <th>
+                Item Name
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+         @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(x => item.PurchaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(x => item.StoreName)
+            </td>
+            <td>
+                @Html.DisplayFor(x => item.StoreItemName)
+            </td>
+            <td>
+                <p class="PurchasePrice">
+                    -@Html.DisplayFor(x => item.ItemPrice)
+                </p>
+            </td>
+        </tr>
+    }
+    </table>
+</fieldset>
+
+@*<ol>
+    @Model.All(@<li>Item @item.StoreItem of @(Model.Count() -1): @item.StoreItem.StoreItemName</li>)
+</ol>*@
+
+

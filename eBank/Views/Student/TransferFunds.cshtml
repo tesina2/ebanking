@@ -1,0 +1,49 @@
+﻿@model eBank.ViewModels.TransferFundsViewModel
+
+<nav>
+    <ul id="menu">
+        <li>@Html.ActionLink("OVERVIEW", "Index")</li>
+        <li>@Html.ActionLink("ACCOUNTS", "AccountSummary")</li>
+        <li>@Html.ActionLink("TRANSFERS", "TransferFunds", "Student")</li>
+        <li>@Html.ActionLink("BILLPAY", "ViewExpenses", "Student")</li>
+        <li>@Html.ActionLink("eSTATEMENTS", "eSTATEMENT", "Student")</li>
+        <li>@Html.ActionLink("ALERTS", "SetupAlert", "Student")</li>
+        <li>@Html.ActionLink("PREFERENCES", "Settings", "Student")</li>
+    </ul>
+</nav>    
+
+@using (Html.BeginForm()) {
+    <fieldset>
+        <legend>Transfer Funds</legend>
+
+        <div class="editor-label">
+            Source Account
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(viewModel => viewModel.SelectedSourceAccountId, Model.ListOfSourceAccounts, "Choose an Account")
+        </div>
+
+        <div class="editor-label">
+            Destination Account
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(viewModel => viewModel.SelectedDestinationAccountId, Model.ListOfDestinationAccounts, "Choose an Account")
+        </div>
+
+        <div class="editor-label">
+            Transfer Amount
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(viewModel => viewModel.TransferAmount)
+        </div>
+
+        <p>
+            <input type="submit" value="Transfer" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back", "AccountSummary")
+</div>
+

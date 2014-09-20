@@ -1,0 +1,42 @@
+﻿@model eBank.Models.Store
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/Simulation.css" />
+
+<fieldset>
+    <legend>Sporting Stop</legend>
+
+    <div class="StoreName" align="center">
+        @Html.DisplayFor(model => model.StoreName)
+    </div>
+
+    @using(Html.BeginForm("PurchaseMultipleItems", "Simulation")) {
+    <table width="200" style="margin-left:auto;margin-right:auto">
+        <thead><tr>
+            <th align="center">Items</th>
+            <th align="center">Description</th>
+            <th align="center">Price</th>
+            <th align="left">Cart</th>
+               </tr></thead>
+        <tbody>
+            @foreach (var item in Model.StoreItems)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(i => item.StoreItemName)</td>
+                    <td>@Html.DisplayFor(i => item.ItemDescription)</td>
+                    <td>@Html.DisplayFor(i => item.ItemPrice)</td>
+                    <td>
+                        <input type="checkbox" name="MultipleItemsCheckboxes" class="GasCheckboxes" value="@item.StoreItemID" />
+                    </td>
+                </tr> 
+            }
+        </tbody>
+    </table>
+    <div class="SubmitCart" align="center">
+        <input type="submit" value="Checkout" />
+    </div>
+    }
+</fieldset>

@@ -1,0 +1,54 @@
+﻿@model eBank.Models.Student
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>User Information</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary()
+    <fieldset>
+        <legend>Registration Form</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ClassroomID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClassroomID)
+            @Html.ValidationMessageFor(model => model.ClassroomID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmailAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmailAddress)
+            @Html.ValidationMessageFor(model => model.EmailAddress)
+        </div>
+
+        <p>
+            <input type="submit" value="Continue" />
+        </p>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

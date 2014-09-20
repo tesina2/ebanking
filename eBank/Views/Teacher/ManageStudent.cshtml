@@ -1,0 +1,37 @@
+﻿@model eBank.ViewModels.ManageStudentViewModel
+
+@{
+    ViewBag.Title = "ManageStudent";
+}
+
+<h2>Manage Student</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ManageStudentViewModel</legend>
+
+        <div class="editor-label">
+            Change Student Classroom
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(viewModel => viewModel.SelectedClassroomId, Model.ListOfClassrooms, "Choose A Classroom")
+        </div>
+
+        @Html.HiddenFor(x => x.StudentID)
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back", "ViewStudent", new { id = Model.StudentID})
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

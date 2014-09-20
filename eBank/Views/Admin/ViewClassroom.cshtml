@@ -1,0 +1,59 @@
+﻿@model eBank.Models.Classroom
+
+@{
+    ViewBag.Title = "ViewClassroom";
+}
+
+<nav>
+    <ul id="menu">
+        <li>@Html.ActionLink("Students", "ListStudents", "Admin")</li>
+        <li>@Html.ActionLink("Teachers", "ListTeachers", "Admin")</li>
+        <li>@Html.ActionLink("Classrooms", "ListClassrooms", "Admin")</li>
+        <li>@Html.ActionLink("Simulation Settings", "SimulationSettings", "Admin")</li>
+    </ul>
+</nav>
+
+<h2 align="center">View Classroom</h2>
+
+<fieldset>
+    <legend>Classroom</legend>
+
+    <table>
+        <tr>
+            <th>
+                Block Name
+            </th>
+            <th>
+                Block Teacher
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.ClassroomName)
+            </td>
+            <td>
+                @Html.ActionLink(Model.Teacher.FirstName + " " + Model.Teacher.LastName, "ViewTeacher", new { id = Model.TeacherID })
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th>
+                Student Name
+            </th>
+        </tr>
+        @foreach(var item in Model.Students)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.FirstName + " " + item.LastName, "ViewStudent", new { id = item.UserId })
+                </td>
+            </tr> 
+        }
+    </table>
+
+</fieldset>
+<p align="right">
+    @Html.ActionLink("Edit", "EditClassroom", new { id = Model.ClassroomID }) 
+</p>

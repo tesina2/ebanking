@@ -1,0 +1,46 @@
+﻿@model IEnumerable<eBank.Models.Student>
+
+@{
+    ViewBag.Title = "ListStudents";
+}
+
+<nav>
+    <ul id="menu">
+        <li>@Html.ActionLink("Students", "ListStudents", "Admin")</li>
+        <li>@Html.ActionLink("Teachers", "ListTeachers", "Admin")</li>
+        <li>@Html.ActionLink("Classrooms", "ListClassrooms", "Admin")</li>
+        <li>@Html.ActionLink("Simulation Settings", "SimulationSettings", "Admin")</li>
+    </ul>
+</nav>
+
+<h2 align="center">List Students</h2>
+
+<table>
+    <tr>
+        <th>
+           Student Name
+        </th>
+        <th>
+            Teacher
+        </th>
+        <th>
+            Classroom
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.ActionLink(item.FirstName + " " + item.LastName, "ViewStudent", new { id = item.UserId })
+        </td>
+        <td>
+            @Html.ActionLink(item.Classroom.Teacher.FirstName + " " + item.Classroom.Teacher.LastName, "ViewTeacher", new { id = item.Classroom.TeacherID })
+        </td>
+        <td>
+            @Html.ActionLink(item.Classroom.ClassroomName, "ViewClassroom", new { id = item.ClassroomID })
+        </td>
+    </tr>
+}
+
+</table>

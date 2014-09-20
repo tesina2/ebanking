@@ -1,0 +1,46 @@
+﻿@model eBank.Models.Purchase
+
+@{
+    ViewBag.Title = "ViewItem";
+}
+
+
+<fieldset>
+    <legend>Purchase</legend>
+
+    <table>
+        <tr>
+            <th>
+                Date Purchased
+            </th>
+            <th>
+                Store Name
+            </th>
+            <th>
+                Item Name
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+        
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.PurchaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.StoreItem.Store.StoreName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.StoreItem.StoreItemName)
+            </td>
+            <td>
+                <p class="PurchasePrice">-@Html.DisplayFor(model => model.StoreItem.ItemPrice)</p>
+            </td>
+        </tr>
+    </table>
+</fieldset>
+
+<p align="right">
+    @Html.ActionLink("Back", "eSTATEMENT")
+</p>
